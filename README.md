@@ -11,10 +11,16 @@ Website-Link:  http://sarveshd444.pythonanywhere.com/
 Login Credential of EB of 2 committee:
 
   1) Host ID:  LMUN-UNGA
+
      Password: Vz67Q3y9
+
+
      
   2) Host ID:  LMUN-UNSC
+
      Password: 9S3zu7g6
+
+
      
  
 FUTURE PLAN:
