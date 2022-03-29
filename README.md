@@ -30,7 +30,7 @@ Progress Video: https://youtu.be/V_IWmu-9d78
 
 Rewriting of Code is in process,
 Rewriting Code in Very Organised manner and with authentication system using token link to verify account.
-Rewriting code will all first class feature.
+New version will be having all first class website feature.
 
 END GOAL:
 Building chits, Facebook of MUN World.
