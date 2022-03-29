@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MUN</title>
+    <style type="text/css">
+      .button {
+        background-color: #4caf50; /* Green */
+        border: none;
+        color: white;
+        padding: 7px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+      }
+
+      .button2:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+
+      hr {
+        border: 3px lightseagreen;
+        display: block;
+        margin-top: 2em;
+        margin-bottom: 2em;
+        margin-left: -0.78em;
+        margin-right: -0.78em;
+        border-style: inset;
+        border-width: 6px;
+      }
+      .fieldset2 {
+        border: 2px solid lightsteelblue;
+        -moz-border-radius: 8px;
+        -webkit-border-radius: 8px;
+        border-radius: 8px;
+      }
+
+      .form {
+        margin: 0% auto 0% auto;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <br />
+    <h2 style="font-family: Courier">{{from_country}}</h2>
+    <hr />
+
+    <form
+      class="form"
+      onsubmit="this.submit(); this.reset(); return false;"
+      method="post"
+      name="MUN"
+      target="_blank"
+      action="/confi"
+    >
+      <br />
+      <fieldset class="fieldset2">
+        <legend>To Which Country</legend>
+        <br />
+
+        <select name="to_country" id="to_country" required>
+          {% if reply_is_true == True %}
+          <option>{{to_country}}</option>
+          {% else %}
+          <option>--EB--</option>
+          {% for country_name in country_list %}
+          <option>{{country_name}}</option>
+          {% endfor %}
+        </select>
+        {%endif%}
+        <br /><br />
+      </fieldset>
+      <br />
+      <br />
+      <fieldset class="fieldset2">
+        <legend>Via EB *</legend>
+        <p>
+          Yes
+          <input type="radio" value="Yes" name="Via_EB" id="Yes" required="" />
+          <br /><br />
+          No <input type="radio" value="No" name="Via_EB" id="No" required="" />
+        </p>
+      </fieldset>
+      <br />
+
+      <pre>
+<h3>Message:</h3>
+<textarea name="messagehere" id="message" cols="40" rows="6" required></textarea>
+	</pre>
+
+      <input
+        class="button button2"
+        style="background-color: #f44336"
+        type="reset"
+      />
+      <input class="button button2" type="submit" value="Send" />
+
+      <br />
+      <br /><br />
+      {% if reply_is_true == False %}
+    </form>
+
+    <form
+      class="form"
+      method="post"
+      name="View"
+      target="_blank"
+      action="/confi"
+    >
+      <input class="button button2" type="submit" value="View Messages" />
+      {% endif %}
+    </form>
+  </body>
+</html>
