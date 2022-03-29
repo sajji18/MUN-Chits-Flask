@@ -27,7 +27,7 @@ Rewriting Code in Very Organised manner and with authentication system using tok
 Rewriting code will all first class feature.
 
 END GOAL:
-Building chits, Facebook of MUN World
+Building chits, Facebook of MUN World.
 
      
 
