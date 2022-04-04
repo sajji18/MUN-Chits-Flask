@@ -1,0 +1,43 @@
+{% extends "layout/layout.html" %}
+{% block content %}
+    <div class="content-section">
+        <form method="POST" action="">
+            {{form.hidden_tag()}}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Credentials</legend>
+                <div class="form-group">
+                    {{ form.host_code.label(class="form-control-label") }}
+                    {% if form.host_code.errors %}
+                        {{ form.host_code(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error1 in form.host_code.errors %}
+                                <span>{{ error1 }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.host_code(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.d_pass.label(class="form-control-label") }}
+                    {% if form.d_pass.errors %}
+                        {{ form.d_pass(class="form-control form-control-lg is-invalid") }}
+                        <div class="invalid-feedback">
+                            {% for error in form.d_pass.errors %}
+                                <span>{{ error }}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                        {{ form.d_pass(class="form-control form-control-lg") }}
+                    {% endif %}
+                </div>
+                <div class="form-group">
+                    {{ form.remember.label(class="form-control-label") }}&ensp;
+                    {{ form.remember }}
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="button button2") }}
+            </div>
+        </form>
+{% endblock content %}

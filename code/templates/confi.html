@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+{%if auto_r!= False%}
+    <meta http-equiv="refresh" content="900">
+{%endif%}
+
+
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='confi_st.css') }}">
+
+<link rel="shortcut icon" href="{{ url_for('static', filename='chit.png') }}" type="image/x-icon">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+<meta charset="utf-8">
+  <title>Messages</title>
+
+
+</head>
+<body>
+<header>
+<div  class="topnav" id="myTopnav">
+
+            <a href="/" class="active" style="font-size: 19;" >CHITS</a>
+            <a href="/home1">Create Chit</a>
+            <a href="#rec">Recieved</a>
+            <a href="#sent">Sent</a>
+            {% if eb==True %}
+            <a href="#eb_msg">Via EB</a>
+            {% if eb==True and chits == False %}
+            <a href="/swi">Open Room</a>
+            {%else%}
+            <a href="/swi">Close Room</a>
+            {% endif %}
+            {% endif %}
+
+            <a href="" onclick="location.reload()">Refresh</a>
+
+            <a href="/logout">Logout</a>
+
+            <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars"></i>
+            </a>
+
+    </div>
+
+</header>
+
+
+
+
+
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+
+
+
+<br><br>
+<br>
+<br>
+
+{% if h_c==False %}
+          {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
+          {% endif %}
+
+</div>
+
+<div class="content-section">
+
+
+
+
+
+
+<form action="/confi_sort" method="post">
+<fieldset class="fieldset1">
+    <legend class="legg">SORT</legend>
+    <br>
+&ensp;&ensp;&ensp;&ensp;
+    <div style="margin-left: 0.5em;">
+    <label for="standard-select">Country</label>
+    <select class='select' id="standard-select" name="sort_country">
+        <option>{{all_opt}}</option>
+        {% for country_name in country_list %}
+        <option>{{country_name}}</option>
+        {% endfor %}<br>
+    </select></div>&emsp;
+
+     <div style="margin-left: 0.5em;">
+        <label for="standard-select">Query</label>
+        <select class="select" id="standard-select" class="form-control form-control-lg" name="sort_query">
+        <option>{{all_opt}}</option>
+        {% for point_for_chit in point_list %}
+        <option>{{point_for_chit}}</option>
+        {% endfor %}
+    </select></div><br>
+    <button type="submit" class="button button2"  >   Sort   </button>
+
+    <br><br>
+  </fieldset>
+
+  </form>
+
+</div>
+
+<hr>
+<a name="rec"></a>
+<br>
+
+
+<div class="content-section">
+{% if msg_data_rec!="" %}
+<fieldset class="fieldset5">
+  <legend class="legg">RECEIVED</legend>
+  {% for i in msg_data_rec %}
+    <div style="display: inline-flex;">
+    <div>
+    <h6 style="font-family: Verdana">To: &emsp;&ensp; {{i[1]}}</h6>
+    <h6 style="font-family: Verdana">From: &ensp;{{i[2]}}</h6>
+    <br>
+    <h6 style="font-family: Verdana">Via EB: &ensp;{{i[3]}}</h6>
+    <br>
+  </div>
+
+    <div class="time_view"><pre style="font-family: sans-serif; font-size: 15px">{{i[5]}}</pre></div>
+    </div>
+    <p style='font-family: sans-serif;'>{{i[6]}}</p><br>
+    <fieldset class="fieldset2">
+      <legend>Message</legend>
+      <div class='scroll'><p style="font-family: Courier">{{i[4]}}</p></div>
+    </fieldset>
+    {%if i[-1]!='None'%}
+    <fieldset class="fieldset3">
+      <legend>Tag</legend>
+      <div class='scroll'><p style="font-family: Courier">{{i[7]}}</p></div>
+    </fieldset>
+    {%endif%}
+
+
+{% if chits == True or eb==True%}
+<form action="/reply_click" method="post">
+  <input type="hidden" value="{{i[0]}}" name="reply">
+&ensp;&ensp;  <button type="submit" class="button button2"  >Reply</button><br>
+</form>
+{% endif %}
+    <hr>
+    <br>
+  {% endfor %}
+{%endif%}
+</fieldset>
+</div>
+
+
+
+
+<br><br>
+<a name="sent"></a>
+{% if msg_data_sent!="" %}
+<hr>
+<br><br>
+<div class="content-section">
+<fieldset class="fieldset5">
+  <legend class="legg">SENT</legend>
+  {% for i in msg_data_sent %}
+
+    <div style="display: inline-flex;">
+    <div>
+    <h6 style="font-family: Verdana">To: &emsp;&ensp; {{i[1]}}</h6>
+    <h6 style="font-family: Verdana">From: &ensp;{{i[2]}}</h6>
+    <br>
+    <h6 style="font-family: Verdana">Via EB: &ensp;{{i[3]}}</h6>
+    <br>
+  </div>
+
+    <div class="time_view"><pre style="font-family: sans-serif; font-size: 15px">{{i[5]}}</pre></div>
+    </div>
+    <p style='font-family: sans-serif;'>{{i[6]}}</p><br>
+    <fieldset class="fieldset3">
+      <legend>Message</legend>
+     <div class='scroll'><p style="font-family: Courier;">{{i[4]}}</p></div>
+    </fieldset>
+    {%if i[-1]!='None' %}
+    <fieldset class="fieldset2">
+      <legend>Tag</legend>
+    <div class='scroll'>  <p style="font-family: Courier">{{i[7]}}</p></div>
+    </fieldset>
+    {%endif%}
+    &emsp;
+    <br>
+
+
+    <hr>
+    <br>
+  {% endfor %}
+
+{%endif%}
+
+</fieldset>
+</div>
+
+
+
+
+
+<a name='eb_msg'></a>
+
+<br><br>
+{% if eb==True %}
+<hr><br><br>
+<div class="content-section">
+<fieldset class="fieldset5">
+  <legend class="legg">Via EB</legend>
+  {% for i in msg_data_eb %}
+
+    <div style="display: inline-flex;">
+    <div>
+    <h6 style="font-family: Verdana">To: &emsp;&ensp; {{i[1]}}</h6>
+    <h6 style="font-family: Verdana">From: &ensp;{{i[2]}}</h6>
+    <br>
+    <h6 style="font-family: Verdana">Via EB: &ensp;{{i[3]}}</h6>
+    <br>
+  </div>
+
+    <div class="time_view"><pre style="font-family: sans-serif; font-size: 15px">{{i[5]}}</pre></div>
+    </div>
+    <p style='font-family: sans-serif;'>{{i[6]}}</p><br>
+    <fieldset class="fieldset2">
+      <legend>Message</legend>
+     <div class='scroll'> <p style="font-family: Courier">{{i[4]}}</p></div>
+    </fieldset>
+    {%if i[-1]!='None' %}
+    <fieldset class="fieldset3">
+      <legend>Tag</legend>
+     <div class='scroll'> <p style="font-family: Courier">{{i[7]}}</p></div>
+    </fieldset>
+    {%endif%}
+    &emsp;
+    <br>
+
+
+    <hr>
+    <br>
+  {% endfor %}
+
+{%endif%}
+
+</fieldset>
+</div>
+
+
+
+
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+
+
+
+/* Toggle between adding and removing the "responsive" class to topnav when the user clicks on the icon */
+
+function myFunction() {
+  var x = document.getElementById("myTopnav");
+  if (x.className === "topnav") {
+    x.className += " responsive";
+  } else {
+    x.className = "topnav";
+  }
+}
+
+
+
+
+
+
+
+
+
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal
+function open_reply_modal() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+
+</script>
+
+
+</body>
+</html>
