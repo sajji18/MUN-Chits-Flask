@@ -23,7 +23,7 @@ Login Credential of EB of 2 committee:
 
      
  
-FUTURE PLAN:
+FUTURE PLAN(ON HOLD):
 Rewriting the code and replacing flask with Django
 
 Progress Video: https://youtu.be/V_IWmu-9d78
