@@ -1,32 +1,33 @@
 # MUN-Chits-Flask
-It provides 'Chits' service for online Model United Nations
 
-**Traffic Data: 50,000+ Hits between May-June 2021, After that we closed our site.**
+This Flask-based web application provides a "Chits" service for online Model United Nations.
 
-*Demo Video Link:  https://youtu.be/fwj8M7ynw2M*
+**Traffic Data: 50,000+ hits between May-June 2021. After that, we closed our site.**
 
-*Website-Link:  http://sarveshd444.pythonanywhere.com/*
+*Demo Video Link: https://youtu.be/fwj8M7ynw2M*
 
-Login Credential of EB of 2 committee:
+*Website-Link: http://sarveshd444.pythonanywhere.com/*
 
-    Host ID:  LMUN-UNGA
-    Password: Vz67Q3y9
-     
-    Host ID:  LMUN-UNSC
-    Password: 9S3zu7g6
+## Login Credentials for Executive Boards of Two Committees
 
+### LMUN-UNGA
 
-FUTURE PLAN(ON HOLD):
-Rewriting the code and replacing flask with Django
+Host ID: `LMUN-UNGA`
+
+Password: `Vz67Q3y9`
+
+### LMUN-UNSC
+
+Host ID: `LMUN-UNSC`
+
+Password: `9S3zu7g6`
+
+### Future Plan (On Hold)
+
+We are currently in the process of rewriting the code and replacing Flask with Django. Our goal is to create a more organized and secure system with an authentication system that uses a token link to verify accounts. The new version will have all first-class website features.
 
 *Progress Video: https://youtu.be/V_IWmu-9d78*
 
-Rewriting of Code is in process,
-Rewriting Code in Very Organised manner and with authentication system using token link to verify account.
-New version will be having all first class website feature.
+### End Goal
 
-END GOAL:
-Building chits, Facebook of MUN World.
-
-     
-
+Our ultimate aim is to build a platform that serves as the "Facebook of the MUN world," offering a wide range of features for Model UN enthusiasts. 
