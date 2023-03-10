@@ -1,7 +1,6 @@
 # MUN-Chits-Flask
 It provides 'Chits' service for online Model United Nations
 
-Future plan given in last
 Traffic Data: 50,000+ Hits between May-June 2021, After that we closed our site.
 
 Demo Video Link:  https://youtu.be/fwj8M7ynw2M
