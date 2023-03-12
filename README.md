@@ -4,9 +4,9 @@ This Flask-based web application provides a "Chits" service for online Model Uni
 
 **Traffic Data: 50,000+ hits between May-June 2021. After that, we closed our site.**
 
-*Demo Video Link: https://youtu.be/fwj8M7ynw2M*
+*[Demo Video](https://youtu.be/fwj8M7ynw2M)*
 
-*Website-Link: http://sarveshd444.pythonanywhere.com/*
+*[Visit Website](http://sarveshd444.pythonanywhere.com/)*
 
 ## Login Credentials for Executive Boards of Two Committees
 
@@ -26,7 +26,7 @@ Password: `9S3zu7g6`
 
 We are currently in the process of rewriting the code and replacing Flask with Django. Our goal is to create a more organized and secure system with an authentication system that uses a token link to verify accounts. The new version will have all first-class website features.
 
-*Progress Video: https://youtu.be/V_IWmu-9d78*
+*[Progress Video](https://youtu.be/V_IWmu-9d78)*
 
 ### End Goal
 
