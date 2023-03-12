@@ -10,17 +10,18 @@ This Flask-based web application provides a "Chits" service for online Model Uni
 
 ## Login Credentials for Executive Boards of Two Committees
 
-### LMUN-UNGA
+> ### LMUN-UNGA
 
 Host ID: `LMUN-UNGA`
 
 Password: `Vz67Q3y9`
 
-### LMUN-UNSC
+>### LMUN-UNSC
 
 Host ID: `LMUN-UNSC`
 
 Password: `9S3zu7g6`
+#
 
 ### Future Plan (On Hold)
 
