@@ -27,9 +27,9 @@ select::after {
 }
 
 select {
-  // A reset of styles, including removing the default dropdown arrow
+  /* // A reset of styles, including removing the default dropdown arrow */
   appearance: none;
-  // Additional resets for further consistency
+  /* // Additional resets for further consistency */
   background-color: transparent;
   border: none;
   padding: 0 1em 0 0;
@@ -66,6 +66,7 @@ select::-ms-expand {
   grid-template-areas: "select";
   align-items: center;
   position: relative;
+  transition: border-color 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 .select::after {
   content: "";
@@ -217,13 +218,13 @@ p {
 .button {
   background-color: #4CAF50; /* Green */
   border: none;
+  border-radius: 0.25rem;
   color: white;
   padding: 6px 24px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 20px;
   cursor: pointer;
   -webkit-transition-duration: 0.4s; /* Safari */
   transition-duration: 0.4s;
@@ -253,19 +254,21 @@ h3 {
 
 .fieldset1
 {
-    border:2px solid skyblue;
+    margin-top: -0.5%;
+    border:1.25px solid rgb(167, 164, 164);
     -moz-border-radius:8px;
     -webkit-border-radius:8px;
     border-radius:8px;
 }
 
 .content-section{
-  background-color: #eee;
+  background-color: lightgoldenrodyellow;
+  border: 2px solid rgb(145, 144, 144);
   border-radius: 1em;
   word-wrap: break-word;
   padding: 0.7em;
   text-align: left;
-
+  margin-top: -0.5%;
 }
 
 
@@ -323,7 +326,7 @@ h3 {
 
 .fieldset5
 {
-    border:2px solid darkgrey;
+    border:1.25px solid rgb(167, 164, 164);
     -moz-border-radius:8px;
     -webkit-border-radius:8px;
     border-radius:8px;
@@ -360,7 +363,7 @@ h3 {
     -moz-border-radius:8px;
     -webkit-border-radius:8px;
     border-radius:8px;
-
+    margin-bottom: 12px;
 
 
 
@@ -374,7 +377,7 @@ hr {
   margin-left: -0.5em;
   margin-right: 0em;
   border-style: inset;
-  border-width: 6px;
+  /* border-width: 6px; */
 }
 
 
